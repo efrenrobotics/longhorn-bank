@@ -82,7 +82,9 @@ int main() {
     double interestRate = stod(interestInput);
     if (input.compare("Savings") == 0) {
         account = new Savings(balance, interestRate);
+        cout << "Savings Account" << endl;
     } else if (input.compare("Checking") == 0) {
+        cout << "Checking Account" << endl;
         account = new Checking(balance, interestRate);
     }
     vector<vector<double>> transactions = readTransactions(transactionsFile);

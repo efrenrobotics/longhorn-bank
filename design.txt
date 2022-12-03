@@ -1,0 +1,2 @@
+To compile make a an input text file named "transactions.txt" according to the format specified in the README.
+Then run make and ./longhorn.

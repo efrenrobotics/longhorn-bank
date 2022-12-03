@@ -2,21 +2,31 @@
 #define ACCOUNT_H
 
 class Account {
-    private:
+    protected:
         double balance;
         int numDeposits;
         int numWithdrawals;
         double annualInterestRate;
-        double serviceCharge;
+        double serviceCharges;
+
+        double depositTotal;
+        double withdrawalTotal;
+        double interestAmount;
+        double serviceChargesTotal;
 
     public:
+        Account() = default;
         // Account constructor
-        Account(double bal, double interestRate){
+        Account(double bal, double interestRate) {
             balance = bal;
             annualInterestRate = interestRate;
             numDeposits = 0;
             numWithdrawals = 0;
-            serviceCharge = 0;
+            serviceCharges = 0;
+            depositTotal = 0;
+            withdrawalTotal = 0;
+            interestAmount = 0;
+            serviceChargesTotal = 0;
         }
         // Account destructor
         ~Account(){}
@@ -25,12 +35,18 @@ class Account {
         virtual void deposit(double val);
         // withdraw function, value parameter which substracts from account balance
         // Incrementes number of withdrawals
-        virtual void withdraw(double val) = 0;
+        virtual void withdraw(double val);
         // calculates monthly interest earned, adds interest to balance
         virtual void calcInt();
         // subtracts monthly service charges from balance, calls calcInt(),
         // sets numWithdrawals, numDeposits, and monthly charges to zero
-        virtual void monthlyProc() = 0;
+        virtual void monthlyProc();
+
+        double getBalance();
+        double getDepositTotal();
+        double getWithdrawalTotal();
+        double getInterest();
+        double getServiceCharges();
 };
 
 #endif

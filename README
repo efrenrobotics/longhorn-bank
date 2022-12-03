@@ -1,0 +1,6 @@
+For the input, use a text file in the following format:
+1st row is "Savings" or "Checking" for the type of account
+2nd row = beginning balance
+3rd row = annual interest rate
+4th row = list of transaction pairs, a D followed by a number is a deposit of that amount
+a W followed by the number is a withdrawal of that amount

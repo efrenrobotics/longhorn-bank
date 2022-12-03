@@ -3,17 +3,17 @@
 
 #include "Account.h"
 
-class Savings : public Account{
+class Checking : public Account {
     private:
+        const static int OVERDRAFT_FEE = 15;
+        const static int MONTHLY_FEE = 5;
 
     public:
-        // use parent constructor
-        using Account::Account;
+        Checking(double bal, double interestRate) : Account(bal, interestRate) {}
+
         // check if balance drops below 0, charge a penalty if it does
         // set to negative balance if penalty can't be paid
         void withdraw(double val);
-
-        void deposit(double val);
 
         // add monthly fee and charge per widthdrawal
         void monthlyProc();
